@@ -31,4 +31,5 @@ public:
           }
         }
         return stk.empty();
+    }
 };
