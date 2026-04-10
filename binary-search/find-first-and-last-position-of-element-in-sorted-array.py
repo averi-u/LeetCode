@@ -20,25 +20,6 @@ class Solution:
             mid_start = (left_start+right_start) // 2
         if nums[mid_start] == target:
             start_pos = mid_start
-        # [5,7,7,8,8,9,10,11,12,13,14]
-        # 0 11
-        # 8
-        # 5
-        # 9>=8
-        # 0 5
-        # 2 
-        # 7 
-        # 7<8
-        # 3 5 
-        # 4 ==
-        # 3 4 
-        # 3 
-        # 3 3 
-
-        # second round binary search
-        # 3 5 
-        # 4 
-        # 
         left_end = 0
         right_end = len(nums) - 1
         mid_end = (left_end+right_end) // 2
@@ -60,7 +41,7 @@ class Solution:
 
 
 
-        
+
         # def bound(is_left: bool) -> int: 
             # l, r = 0, len(nums) - 1 
             # ans = -1 
