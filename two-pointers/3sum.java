@@ -5,7 +5,7 @@ class Solution {
         for (int j = i +1; j <nums.length - 1; j+=1) {
           for (int k = i +1; j <nums.length -2; k+=1) {
             Boolean isvalid = false;
-            if (nums[i]!=j & nums[i]!= k & nums[j]!=k) {
+            if (nums[i]!=nums[j] & nums[i]!= nums[k] & nums[j]!=nums[k]) {
               if (nums[i] + nums[j] + nums[k] == 0) {
                 isvalid= true;
                 if (isvalid) {
