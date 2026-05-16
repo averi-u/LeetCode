@@ -10,10 +10,10 @@ class Solution {
                     isvalid= true;
                     if (isvalid) {
                     List<Integer> validseq = null;
-                            validseq.add(i);
-                    validseq.add(j);
-                    validseq.add(k);
-                    outputs.add(validseq);
+                        validseq.add(i);
+                        validseq.add(j);
+                        validseq.add(k);
+                        outputs.add(validseq);
                     }
                     
                 }
