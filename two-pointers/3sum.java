@@ -1,6 +1,6 @@
 class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-        ArrayList<int[]> outputs = new ArrayList<int[]>();
+    public ArrayList<int[]> threeSum(int[] nums) {
+    ArrayList<int[]> outputs = new ArrayList<int[]>();
     for(int i = 0; i < nums.length-2; i+=1) {
         for (int j = i +1; j <nums.length - 1; j+=1) {
           for (int k = i +1; j <nums.length -2; k+=1) {
@@ -21,7 +21,7 @@ class Solution {
             }
           }
         }
-    
-        return outputs;
     }
+    return outputs;
+  }
 }
