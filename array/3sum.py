@@ -19,7 +19,7 @@ class Solution(object):
                 if s == target: 
                     res.append([nums[i], nums[l], nums[r]])
 
-                    l_val, r_val = nums[l], num[r]
+                    l_val, r_val = nums[l], nums[r]
 
                     while l < r and nums[l] == l_val: 
                         l += 1 
