@@ -15,8 +15,10 @@ class Solution:
             if j == len(p):
                 return False
             if ord('a') <= ord(p[j]) <= ord('z'):
-                if s[i] != p[j]:
+                if j > 0 and s[i] != p[j]:
                     return False
+                elif j==0 and s[i] != p[j]:
+                    return dfs(i+1, j) or dfs(i, j+1)
                 return dfs(i+1, j+1)
             elif p[j] == '.':
                 return dfs(i+1, j+1)
