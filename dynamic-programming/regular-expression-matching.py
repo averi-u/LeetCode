@@ -1,11 +1,11 @@
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         def only_star(p):
-        p = set(p)
-        for c in list(p):
-            if c != '*':
-                return False
-        return True
+            p = set(p)
+            for c in list(p):
+                if c != '*':
+                    return False
+            return True
     def dfs(i, j):
         nonlocal s, p
         if i == len(s) and only_star(p[j:]):
