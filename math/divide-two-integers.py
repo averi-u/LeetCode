@@ -9,11 +9,7 @@ class Solution:
         ret = 0
         sign = 1
         
-
-        if ((dividend > 0 and abs_dividend < 0) or
-            (divisor > 0 and abs_divisor < 0) or
-            (dividend < 0 and abs_dividend > 0) or
-            (divisor < 0 and abs_divisor > 0)):
+        if ((dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0)):
             sign = -1
         for _ in range(0, abs_dividend, abs_divisor):
             ret += 1
