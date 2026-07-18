@@ -1,20 +1,38 @@
 class Solution:
     def divide(self, dividend: int, divisor: int) -> int:
-        dividend = math.floor(dividend) if dividend > 0 else math.ceil(dividend)
-        divisor = math.floor(divisor) if divisor > 0 else math.ceil(divisor)
+        INT_MIN = -2 ** 31
+        INT_MAX = 2 ** 31 - 1
 
-        abs_dividend = abs(dividend)
-        abs_divisor = abs(divisor)
+        # Handle overflow case explicitly
+        if dividend == INT_MIN and divisor == -1:
+            return INT_MAX
 
-        ret = 0
-        sign = 1
-        
-        if ((dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0)):
-            sign = -1
-        for _ in range(0, abs_dividend, abs_divisor):
-            ret += 1
-            if (ret * abs_divisor > abs_dividend):
-                ret -= 1
+        # Determine sign of the result
+        negative = (dividend < 0) ^ (divisor < 0)
 
-        return ret * sign
-        
+        # Work with positive values
+        dvd = abs(dividend)
+        dvs = abs(divisor)
+
+        result = 0
+
+        # Main loop: subtract largest shifted divisor each time
+        while dvd >= dvs:
+            shift = 0
+            # Find largest shift such that (dvs << shift) <= dvd
+            while dvd >= (dvs << (shift + 1)):
+                shift += 1
+
+            dvd -= dvs << shift
+            result += 1 << shift
+
+        if negative:
+            result = -result
+
+        # Clamp to 32-bit range
+        if result < INT_MIN:
+            return INT_MIN
+        if result > INT_MAX:
+            return INT_MAX
+
+        return result
