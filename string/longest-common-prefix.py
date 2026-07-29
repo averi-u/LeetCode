@@ -6,8 +6,9 @@ class Solution:
             for x in range(len(item)):
                 if item[x]!=res[x]:
                     break
-
-            res=item[0:x]
+            
+            if x<=len(item):
+                res=item[0:x]
 
 
         return res
